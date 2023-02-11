@@ -38,6 +38,27 @@ RegisterNUICallback("BadgerStocks:Sell", function(data, cb)
 	cb(TriggerServerEvent("BadgerStocks:Sell", data, function(callback) return callback end))
 end)
 
+RegisterNUICallback("BadgerStocks:Buyx10", function(data, cb)
+	cb(TriggerServerEvent("BadgerStocks:Buyx10", data, function(callback) return callback end))
+end)
+RegisterNUICallback("BadgerStocks:Sellx10", function(data, cb)
+	cb(TriggerServerEvent("BadgerStocks:Sellx10", data, function(callback) return callback end))
+end)
+
+RegisterNUICallback("BadgerStocks:Buyx100", function(data, cb)
+	cb(TriggerServerEvent("BadgerStocks:Buyx100", data, function(callback) return callback end))
+end)
+RegisterNUICallback("BadgerStocks:Sellx100", function(data, cb)
+	cb(TriggerServerEvent("BadgerStocks:Sellx100", data, function(callback) return callback end))
+end)
+
+RegisterNUICallback("BadgerStocks:Buyx1000", function(data, cb)
+	cb(TriggerServerEvent("BadgerStocks:Buyx1000", data, function(callback) return callback end))
+end)
+RegisterNUICallback("BadgerStocks:Sellx1000", function(data, cb)
+	cb(TriggerServerEvent("BadgerStocks:Sellx1000", data, function(callback) return callback end))
+end)
+
 maxStocksOwned = 20; -- The max stocks the user is allowed to own 
 RegisterNetEvent('BadgerStockMarket:Client:SetMaxStocksOwned')
 AddEventHandler('BadgerStockMarket:Client:SetMaxStocksOwned', function(maxStocks)
