@@ -170,6 +170,34 @@ $( function() {
                                 '<h3>$' + cost + ' per stock</h3>' +
                                     '<button class="buy" onclick="buyStock(\'' + stockAbbrev + '\', ' + cost + ')">Buy</button>' +
                                     '<button class="sell" onclick="sellStock(\'' + stockAbbrev + '\', ' + cost + ')">Sell</button>' +
+                                    '<button class="buy" onclick="buy10Stock(\'' + stockAbbrev + '\', ' + cost + ')">Buyx10</button>' +
+                                    '<button class="sell" onclick="sell10Stock(\'' + stockAbbrev + '\', ' + cost + ')">Sellx10</button>' +
+                                    '<button class="buy" onclick="buy100Stock(\'' + stockAbbrev + '\', ' + cost + ')">Buyx100</button>' +
+                                    '<button class="sell" onclick="sell100Stock(\'' + stockAbbrev + '\', ' + cost + ')">Sellx100</button>' +
+                                    '<button class="buy" onclick="buy1000Stock(\'' + stockAbbrev + '\', ' + cost + ')">Buyx1000</button>' +
+                                    '<button class="sell" onclick="sell1000Stock(\'' + stockAbbrev + '\', ' + cost + ')">Sellx1000</button>' +
+                                '</div>' +
+                            '</div>');
+                $('#stockGraphs2').append('<div class="item">' +
+                                '<div class="item-data">' +
+                                    '<h2>' + stockAbbrev + '</h2>' +
+                                    '<h3>' + stockLabel + '</h3>' +
+                                '</div>' + 
+                                '<hr />' + 
+                                '<div class="item-graph">' +
+                                    '<img src="' + 'https:' + imgURL + '" width="100%" />' +
+                                '</div>' +
+                                '<hr />' + 
+                                '<div class="item-section">' +
+                                '<h3>$' + cost + ' per stock</h3>' +
+                                    '<button class="buy" onclick="buyStock(\'' + stockAbbrev + '\', ' + cost + ')">Buy</button>' +
+                                    '<button class="sell" onclick="sellStock(\'' + stockAbbrev + '\', ' + cost + ')">Sell</button>' +
+                                    '<button class="buy" onclick="buy10Stock(\'' + stockAbbrev + '\', ' + cost + ')">Buyx10</button>' +
+                                    '<button class="sell" onclick="sell10Stock(\'' + stockAbbrev + '\', ' + cost + ')">Sellx10</button>' +
+                                    '<button class="buy" onclick="buy100Stock(\'' + stockAbbrev + '\', ' + cost + ')">Buyx100</button>' +
+                                    '<button class="sell" onclick="sell100Stock(\'' + stockAbbrev + '\', ' + cost + ')">Sellx100</button>' +
+                                    '<button class="buy" onclick="buy1000Stock(\'' + stockAbbrev + '\', ' + cost + ')">Buyx1000</button>' +
+                                    '<button class="sell" onclick="sell1000Stock(\'' + stockAbbrev + '\', ' + cost + ')">Sellx1000</button>' +
                                 '</div>' +
                             '</div>');
                 // End stockGraphs
@@ -215,7 +243,8 @@ $( function() {
                 var abbrev = stock[1];
                 var prichPurch = stock[2];
                 var ownCount = stock[3];
-                $('#userData').append('<tr><td>' + abbrev + "</td><td>$" + prichPurch + "</td><td>" + ownCount + "</td></tr>");
+                var mrktHoldings = stock[4];
+                $('#userData').append('<tr><td>' + abbrev + "</td><td>$" + prichPurch + "</td><td>" + ownCount + "</td><td>$" + mrktHoldings + "</td></tr>" );
             });
         }
     } );
@@ -231,6 +260,40 @@ function sellStock(stockAbbrev, costPer) {
         // It was a valid sell
     }
 }
+
+function buy10Stock(stockAbbrev, costPer) {
+    if (sendData("BadgerStocks:Buyx10", {stock: stockAbbrev, cost: costPer})) {
+        // It was a valid buy
+    }
+}
+function sell10Stock(stockAbbrev, costPer) {
+    if (sendData("BadgerStocks:Sellx10", {stock: stockAbbrev, cost: costPer})) {
+        // It was a valid sell
+    }
+}
+
+function buy100Stock(stockAbbrev, costPer) {
+    if (sendData("BadgerStocks:Buyx100", {stock: stockAbbrev, cost: costPer})) {
+        // It was a valid buy
+    }
+}
+function sell100Stock(stockAbbrev, costPer) {
+    if (sendData("BadgerStocks:Sellx100", {stock: stockAbbrev, cost: costPer})) {
+        // It was a valid sell
+    }
+}
+
+function buy1000Stock(stockAbbrev, costPer) {
+    if (sendData("BadgerStocks:Buyx1000", {stock: stockAbbrev, cost: costPer})) {
+        // It was a valid buy
+    }
+}
+function sell1000Stock(stockAbbrev, costPer) {
+    if (sendData("BadgerStocks:Sellx1000", {stock: stockAbbrev, cost: costPer})) {
+        // It was a valid sell
+    }
+}
+
 function showCollections(topic) {
     $('#pStocks').children().each(function (index) {
         var tags = $(this).attr('tags');
