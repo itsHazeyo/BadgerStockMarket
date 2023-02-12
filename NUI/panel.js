@@ -2,7 +2,8 @@
 
     BadgerStockMarket
     Created by Badger
-    
+    Updated and patched by itsHazeyo    
+
     Pages:
     #phoneSection = Whole phone
     #navigateBar = Nav bar (bottom)
