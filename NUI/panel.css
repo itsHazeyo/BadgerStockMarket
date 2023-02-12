@@ -28,10 +28,10 @@ span.error {
 	background-color: red;
 }
 div.phoneBackground {
-	background-image: url("iphone.png");
+	background-image: url("iphone4.png");
 	height:882px;
-	width: 609px;
-	background-size: 609px 882px;
+	width: 1827px;
+	background-size: 1827px 882px;
 	background-position: center;
 	margin-left: auto;
 	margin-right: auto;
@@ -40,17 +40,17 @@ div.phoneBackground {
 div.content-contain {
 	background-color: #f2f2f2;
 	height: 655px;
-	width: 556px;
+	width: 1668px;
 	position: absolute;
 	margin-top: 98px;
-	margin-left: 28px;
+	margin-left: 84px;
 }
 div.loadingScreen {
 	display: none;
 	position: absolute;
 	text-align: center;
 	height: 675px;
-	width: 556px;
+	width: 1668px;
 	z-index: 1;
 }
 div.browsePage {
@@ -105,7 +105,7 @@ div.pStocks-box span {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	display: block;
-	width: 100%;
+	width: 33%;
 	overflow: hidden;
 }
 div.pStocks-box h3 {
@@ -156,12 +156,54 @@ div.popularCollections button:hover {
 /* End Popular Collections Section */
 
 /* Graph page */
+
+div.container-padding-stockgraphs {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content:left;
+	height: 395x;
+	overflow-y: hidden;
+}
+
+div.container-padding-stockgraphs h1 {
+	width: 100%;
+    text-align: left;
+}
+
+div.container-padding-stockgraphs #stockGraphs{
+	width: 475px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	height: 95%;
+	overflow-y: auto;
+
+}
+div.container-padding-stockgraphs #stockGraphs2{
+	width: 500px;
+	margin-bottom: 10px;
+	margin-top: 80px;
+	height: 95%;
+	overflow-y: auto;
+
+}
+div.container-padding-stockgraphs #stockGraphs3{
+	width: 500px;
+	margin-bottom: 10px;
+	margin-top: 80px;
+	height: 95%;
+	overflow-y: auto;
+
+}
+
 div.graphPage {
 	height: 90%;
 	width: 100%;
-	display: none;
+	display: inline-flex;
+	flex-wrap: nowrap;
 	position: absolute;
+
 }
+
 div.graphPage #stockGraphs {
 	overflow-y: auto;
 	height: 90%;
@@ -356,11 +398,11 @@ div.navbar button:hover {
 
 #homeButton {
 	position: absolute;
-	height: 60px;
-	width: 100px;
+	height: 30px;
+	width: 45px;
 	border-radius: 50%;
 	border: 0;
-	margin-top: 695px;
-	margin-left: 228px;
-	background-color: transparent;
+	margin-top: -75px;
+	margin-left: 97.2%;
+	background-color: rgb(238, 91, 63);
 }
