@@ -45,7 +45,7 @@ AddEventHandler("BadgerStocks:Buy", function(data, cb)
             TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Account Restriction:', "You have reached the maxium amount equities allowed for your account. Consider upgrading today!", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
         end
     else
-        TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Funds:', "You do not the ~g~Capital~s~ ~r~Required~s~ for this transaction.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200); 
+        TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Funds:', "You lack $~g~"....ESX.Math.GroupDigits(costPer)...."~s~ in ~r~Capital~s~ ~r~Requirements~s~ for this transaction.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200); 
         -- They do not have enough money to afford this 
         --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not have enough money to afford this...</span>");
     end
@@ -102,7 +102,7 @@ AddEventHandler("BadgerStocks:Buyx10", function(data, cb)
             TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Account Restriction:', "You have reached the maxium amount equities allowed for your account. Consider upgrading today!", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
         end
     else
-        TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Funds:', "You do not have the ~g~Capital~s~ ~r~Required~s~ for this transaction.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200); 
+        TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Funds:', "You lack $~g~"....ESX.Math.GroupDigits(transCost)...."~s~ in ~r~Capital~s~ ~r~Requirements~s~ for this transaction.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200); 
         -- They do not have enough money to afford this 
         --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not have enough money to afford this...</span>");
     end
@@ -160,7 +160,7 @@ AddEventHandler("BadgerStocks:Buyx100", function(data, cb)
             TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Account Restriction:', "You have reached the maxium amount equities allowed for your account. Consider upgrading today!", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
         end
     else 
-        TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Funds:', "You do not have the ~g~Capital~s~ ~r~Required~s~ for this transaction.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
+        TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Funds:', "You lack $~g~"....ESX.Math.GroupDigits(transCost)...."~s~ in ~r~Capital~s~ ~r~Requirements~s~ for this transaction.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
         -- They do not have enough money to afford this 
         --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not have enough money to afford this...</span>");
     end
@@ -219,7 +219,7 @@ AddEventHandler("BadgerStocks:Buyx1000", function(data, cb)
             TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Account Restriction:', "You have reached the maxium amount equities allowed for your account. Consider upgrading today!", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
         end
     else 
-        TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Funds:', "You do not have the ~g~Capital~s~ ~r~Required~s~ for this transaction.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
+        TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Funds:', "You lack $~g~"....ESX.Math.GroupDigits(transCost)...."~s~ in ~r~Capital~s~ ~r~Requirements~s~ for this transaction.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
         -- They do not have enough money to afford this 
         --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not have enough money to afford this...</span>");
     end
