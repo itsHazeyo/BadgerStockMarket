@@ -35,17 +35,19 @@ AddEventHandler("BadgerStocks:Buy", function(data, cb)
             -- They can buy another one of it 
             BuyStock(src, stockAbbrev, 1, costPer);
             xPlayer.setMoney( (xPlayer.getMoney() - costPer) );
-            TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='buy'>SUCCESS: Purchased a Share of " .. stockAbbrev .. "</span>");
+            --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='buy'>SUCCESS: Purchased a Share of " .. stockAbbrev .. "</span>");
+            TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Stock Purchase:', "You paid ~g~$"..ESX.Math.GroupDigits(costPer).."~s~ for ~y~One Share~s~ of ~r~"..stockAbbrev.."~s~.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
             TriggerEvent("BadgerStocks:SetupDataID", src);
             --cb('ok');
         else 
             -- They already have the max number of stocks they are allowed 
-            TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You already have the max number of stocks you " .. 
-                "are allowed to own...</span>");
+            --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You already have the max number of stocks you " .. "are allowed to own...</span>");
+            TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Account Restriction:', "You have reached the maxium amount equities allowed for your account. Consider upgrading today!", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
         end
-    else 
+    else
+        TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Funds:', "You do not the ~g~Capital~s~ ~r~Required~s~ for this transaction.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200); 
         -- They do not have enough money to afford this 
-        TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not have enough money to afford this...</span>");
+        --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not have enough money to afford this...</span>");
     end
 end)
 RegisterNetEvent("BadgerStocks:Sell")
@@ -61,15 +63,18 @@ AddEventHandler("BadgerStocks:Sell", function(data, cb)
              -- They own it, sell it 
             SellStock(src, stockAbbrev, 1, costPer);
             xPlayer.setMoney(xPlayer.getMoney() + costPer);
-            TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='sell'>SUCCESS: Sold a Share of " .. stockAbbrev .. "</span>");
+            --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='sell'>SUCCESS: Sold a Share of " .. stockAbbrev .. "</span>");
+            TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Stock Sale:', "You sold ~y~One Share~s~ of ~r~"..stockAbbrev.."~s~ for ~g~$"..ESX.Math.GroupDigits(costPer).."~s~.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
             TriggerEvent("BadgerStocks:SetupDataID", src);
         else 
+            TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Equity:', "You do not have the ~r~Required Amount~s~ of ~g~Shares~s~ for this transaction.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200); 
             -- They do not own this stock 
-            TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not own Enough of this stock...</span>");
+            --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not own Enough of this stock...</span>");
         end
     else 
         -- They do not own this stock 
-        TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not own any of this stock...</span>");
+        --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not own any of this stock...</span>");
+        TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Equity:', "You do not ~g~Own~s~ any ~y~Shares~s~ of ~r~"..stockAbbrev.."~s~.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
     end 
 end)
 
@@ -87,17 +92,19 @@ AddEventHandler("BadgerStocks:Buyx10", function(data, cb)
             -- They can buy another one of it 
             BuyStock(src, stockAbbrev, 10, costPer);
             xPlayer.setMoney( (xPlayer.getMoney() - transCost) );
-            TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='buy'>SUCCESS: Purchased 10 Shares of " .. stockAbbrev .. "</span>");
+            --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='buy'>SUCCESS: Purchased 10 Shares of " .. stockAbbrev .. "</span>");
+            TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Stock Purchase:', "You paid ~g~$"..ESX.Math.GroupDigits(transCost).."~s~ for ~y~Ten Shares~s~ of ~r~"..stockAbbrev.."~s~ at ~g~$"..ESX.Math.GroupDigits(costPer).."~s~.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
             TriggerEvent("BadgerStocks:SetupDataID", src);
             --cb('ok');
         else 
             -- They already have the max number of stocks they are allowed 
-            TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You already have the max number of stocks you " .. 
-                "are allowed to own...</span>");
+            --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You already have the max number of stocks you " .. "are allowed to own...</span>");
+            TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Account Restriction:', "You have reached the maxium amount equities allowed for your account. Consider upgrading today!", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
         end
-    else 
+    else
+        TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Funds:', "You do not have the ~g~Capital~s~ ~r~Required~s~ for this transaction.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200); 
         -- They do not have enough money to afford this 
-        TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not have enough money to afford this...</span>");
+        --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not have enough money to afford this...</span>");
     end
 end)
 RegisterNetEvent("BadgerStocks:Sellx10")
@@ -114,15 +121,18 @@ AddEventHandler("BadgerStocks:Sellx10", function(data, cb)
              -- They own it, sell it 
             SellStock(src, stockAbbrev, 10, costPer);
             xPlayer.setMoney(xPlayer.getMoney() + transCost);
-            TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='sell'>SUCCESS: Sold 10 Shares of " .. stockAbbrev .. "</span>");
+            --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='sell'>SUCCESS: Sold 10 Shares of " .. stockAbbrev .. "</span>");
+            TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Stock Sale:', "You sold ~y~Ten Shares~s~ of ~r~"..stockAbbrev.."~s~ at ~g~$"..ESX.Math.GroupDigits(costPer).."~s~ for ~g~$"..ESX.Math.GroupDigits(transCost).."~s~.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
             TriggerEvent("BadgerStocks:SetupDataID", src);
         else 
             -- They do not own this stock 
-            TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not own Enough of this stock...</span>");
+            --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not own Enough of this stock...</span>");
+            TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Equity:', "You do not have the ~r~Required Amount~s~ of ~g~Shares~s~ for this transaction.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
         end
     else 
         -- They do not own this stock 
-        TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not own any of this stock...</span>");
+        --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not own any of this stock...</span>");
+        TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Equity:', "You do not ~g~Own~s~ any ~y~Shares~s~ of ~r~"..stockAbbrev.."~s~.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
     end 
 end)
 
@@ -140,17 +150,19 @@ AddEventHandler("BadgerStocks:Buyx100", function(data, cb)
             -- They can buy another one of it 
             BuyStock(src, stockAbbrev, 100, costPer);
             xPlayer.setMoney( (xPlayer.getMoney() - transCost) );
-            TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='buy'>SUCCESS: Purchased 100 Shares of " .. stockAbbrev .. "</span>");
+            --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='buy'>SUCCESS: Purchased 100 Shares of " .. stockAbbrev .. "</span>");
+            TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Stock Purchase:', "You paid ~g~$"..ESX.Math.GroupDigits(transCost).."~s~ for a ~y~Hundred Shares~s~ of ~r~"..stockAbbrev.."~s~ at ~g~$"..ESX.Math.GroupDigits(costPer).."~s~.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
             TriggerEvent("BadgerStocks:SetupDataID", src);
             --cb('ok');
         else 
             -- They already have the max number of stocks they are allowed 
-            TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You already have the max number of stocks you " .. 
-                "are allowed to own...</span>");
+            --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You already have the max number of stocks you " .. "are allowed to own...</span>");
+            TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Account Restriction:', "You have reached the maxium amount equities allowed for your account. Consider upgrading today!", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
         end
     else 
+        TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Funds:', "You do not have the ~g~Capital~s~ ~r~Required~s~ for this transaction.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
         -- They do not have enough money to afford this 
-        TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not have enough money to afford this...</span>");
+        --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not have enough money to afford this...</span>");
     end
 end)
 RegisterNetEvent("BadgerStocks:Sellx100")
@@ -167,16 +179,19 @@ AddEventHandler("BadgerStocks:Sellx100", function(data, cb)
         -- They own it, sell it 
             SellStock(src, stockAbbrev, 100, costPer);
             xPlayer.setMoney(xPlayer.getMoney() + transCost);
-            TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='sell'>SUCCESS: Sold 100 Shares of " .. stockAbbrev .. "</span>");
+            --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='sell'>SUCCESS: Sold 100 Shares of " .. stockAbbrev .. "</span>");
+            TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Stock Sale:', "You sold a ~y~Hundred Shares~s~ of ~r~"..stockAbbrev.."~s~ at ~g~$"..ESX.Math.GroupDigits(costPer).."~s~ for ~g~$"..ESX.Math.GroupDigits(transCost).."~s~.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
             TriggerEvent("BadgerStocks:SetupDataID", src);
             --cb('ok');
         else 
             -- They do not own this stock 
-            TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not own Enough of this stock...</span>");
+            --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not own Enough of this stock...</span>");
+            TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Equity:', "You do not have the ~r~Required Amount~s~ of ~g~Shares~s~ for this transaction.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
         end
     else 
         -- They do not own this stock 
-        TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not own any of this stock...</span>");
+        --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not own any of this stock...</span>");
+        TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Equity:', "You do not ~g~Own~s~ any ~y~Shares~s~ of ~r~"..stockAbbrev.."~s~.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
     end 
 end)
 
@@ -194,17 +209,19 @@ AddEventHandler("BadgerStocks:Buyx1000", function(data, cb)
             -- They can buy another one of it 
             BuyStock(src, stockAbbrev, 1000, costPer);
             xPlayer.setMoney( (xPlayer.getMoney() - transCost) );
-            TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='buy'>SUCCESS: Purchased 1000 Shares of " .. stockAbbrev .. "</span>");
+            --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='buy'>SUCCESS: Purchased 1000 Shares of " .. stockAbbrev .. "</span>");
+            TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Stock Purchase:', "You paid ~g~$"..ESX.Math.GroupDigits(transCost).."~s~ for a ~y~Thousand Shares~s~ of ~r~"..stockAbbrev.."~s~ at ~g~$"..ESX.Math.GroupDigits(costPer).."~s~.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
             TriggerEvent("BadgerStocks:SetupDataID", src);
             --cb('ok');
         else 
             -- They already have the max number of stocks they are allowed 
-            TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You already have the max number of stocks you " .. 
-                "are allowed to own...</span>");
+            --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You already have the max number of stocks you " .. "are allowed to own...</span>");
+            TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Account Restriction:', "You have reached the maxium amount equities allowed for your account. Consider upgrading today!", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
         end
     else 
+        TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Funds:', "You do not have the ~g~Capital~s~ ~r~Required~s~ for this transaction.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
         -- They do not have enough money to afford this 
-        TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not have enough money to afford this...</span>");
+        --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not have enough money to afford this...</span>");
     end
 end)
 RegisterNetEvent("BadgerStocks:Sellx1000")
@@ -221,16 +238,19 @@ AddEventHandler("BadgerStocks:Sellx1000", function(data, cb)
             -- They own it, sell it 
             SellStock(src, stockAbbrev, 1000, costPer);
             xPlayer.setMoney(xPlayer.getMoney() + transCost);
-            TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='sell'>SUCCESS: Sold 1000 Shares of " .. stockAbbrev .. "</span>");
+            --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='sell'>SUCCESS: Sold 1000 Shares of " .. stockAbbrev .. "</span>");
+            TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Stock Sale:', "You sold a ~y~Thousand Shares~s~ of ~r~"..stockAbbrev.."~s~ at ~g~$"..ESX.Math.GroupDigits(costPer).."~s~ for ~g~$"..ESX.Math.GroupDigits(transCost).."~s~.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
             TriggerEvent("BadgerStocks:SetupDataID", src);
             --cb('ok');
         else 
             -- They do not own this stock 
-            TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not own Enough of this stock...</span>");
+            --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not own Enough of this stock...</span>");
+            TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Equity:', "You do not have the ~r~Required Amount~s~ of ~g~Shares~s~ for this transaction.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
         end
     else 
         -- They do not own this stock 
-        TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not own any of this stock...</span>");
+        --TriggerClientEvent("BadgerStocks:SendNotif", src, "<span class='error'>ERROR: You do not own any of this stock...</span>");
+        TriggerClientEvent('esx:showAdvancedNotification', src, 'Mors Mutual,', 'Insufficient Equity:', "You do not ~g~Own~s~ any ~y~Shares~s~ of ~r~"..stockAbbrev.."~s~.", 'CHAR_MP_MORS_MUTUAL', 9, false, true, 200);
     end 
 end)
 
