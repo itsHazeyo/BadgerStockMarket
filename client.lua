@@ -31,31 +31,42 @@ AddEventHandler("BadgerStocks:SendData", function(data)
 end)
 
 RegisterNUICallback("BadgerStocks:Buy", function(data, cb)
+ TriggerServerEvent("BadgerStocks:SetupData");
 	cb(TriggerServerEvent("BadgerStocks:Buy", data, function(callback) return callback end))
 end)
 
 RegisterNUICallback("BadgerStocks:Sell", function(data, cb)
+ TriggerServerEvent("BadgerStocks:SetupData");
 	cb(TriggerServerEvent("BadgerStocks:Sell", data, function(callback) return callback end))
 end)
 
 RegisterNUICallback("BadgerStocks:Buyx10", function(data, cb)
+ TriggerServerEvent("BadgerStocks:SetupData");
 	cb(TriggerServerEvent("BadgerStocks:Buyx10", data, function(callback) return callback end))
 end)
+
 RegisterNUICallback("BadgerStocks:Sellx10", function(data, cb)
+ TriggerServerEvent("BadgerStocks:SetupData");
 	cb(TriggerServerEvent("BadgerStocks:Sellx10", data, function(callback) return callback end))
 end)
 
 RegisterNUICallback("BadgerStocks:Buyx100", function(data, cb)
+ TriggerServerEvent("BadgerStocks:SetupData");
 	cb(TriggerServerEvent("BadgerStocks:Buyx100", data, function(callback) return callback end))
 end)
+
 RegisterNUICallback("BadgerStocks:Sellx100", function(data, cb)
+ TriggerServerEvent("BadgerStocks:SetupData");
 	cb(TriggerServerEvent("BadgerStocks:Sellx100", data, function(callback) return callback end))
 end)
 
 RegisterNUICallback("BadgerStocks:Buyx1000", function(data, cb)
+ TriggerServerEvent("BadgerStocks:SetupData");
 	cb(TriggerServerEvent("BadgerStocks:Buyx1000", data, function(callback) return callback end))
 end)
+
 RegisterNUICallback("BadgerStocks:Sellx1000", function(data, cb)
+ TriggerServerEvent("BadgerStocks:SetupData");
 	cb(TriggerServerEvent("BadgerStocks:Sellx1000", data, function(callback) return callback end))
 end)
 
